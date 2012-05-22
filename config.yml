@@ -1,0 +1,31 @@
+default:
+  base_url: 'https://jenkins.puppetlabs.com'
+  view: 'Compose Builds'
+  token: 'MySuperSecretToken'
+  # Username and Password for basic auth, password is optional with above token
+  username:
+  password:
+# Whitelist of jobs to build and shortcut data, optional
+jobs:
+  - name: 'Puppet Compose (3.0.x)'
+    repo: 'puppet'
+    branch: '3.0.x'
+    # valid types are: 'commit', 'branch', 'tag', and 'pull_request'
+    type: 'tag'
+  - name: 'Puppet Pull Requests (3.0.x)'
+    repo: 'puppet'
+    branch: '3.0.x'
+    type: 'pull_request'
+#    # You can override default values on a per job basis here
+#    base_url:
+#    view:
+#    token:
+#    username:
+#    password:
+#
+# 'Database' of subscribed repos on Github, for housekeeping
+repos:
+  - org: 'puppetlabs'
+    name: 'puppet'
+    events:
+      - 'push'
